@@ -1,8 +1,10 @@
 package app;
 
 import java.awt.AWTException;
+import java.awt.Dimension;
 import java.awt.Rectangle;
 import java.awt.Robot;
+import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 
 public class SnippedImage {
@@ -16,6 +18,15 @@ public class SnippedImage {
 		this.length = length;
 		this.screenshot = createScreenshot(this.width, this.length);
 	}
+	
+	/**
+	 * Create a screenshot of the full screen
+	 * @return BufferedImage screenshot of entire screen
+	 * @throws AWTException
+	 */
+	public static BufferedImage createScreenshot() throws AWTException {
+        return createScreenshot(Toolkit.getDefaultToolkit().getScreenSize());
+	}
 
 	/**
 	 * Create screenshot
@@ -24,16 +35,28 @@ public class SnippedImage {
 	 * @return BufferedImage screenshot
 	 * @throws AWTException
 	 */
-	public BufferedImage createScreenshot(int width, int length) throws AWTException {
-		
-			Robot rbt = new Robot();
-
-            Rectangle capture = new Rectangle(width, length);
+	public static BufferedImage createScreenshot(int width, int length) throws AWTException {
+			Dimension area = new Dimension(width, length);
+			return createScreenshot(area);
             
-            BufferedImage Image = rbt.createScreenCapture(capture); 
-			
-			return Image;
 	}
+	
+	/**
+	 * Create a screenshot from Dimension
+	 * @param area
+	 * @return Screenshot of area.
+	 * @throws AWTException
+	 */
+	public static BufferedImage createScreenshot(Dimension area) throws AWTException {
+		Robot rbt = new Robot();
+		Rectangle capture = new Rectangle(area);
+        
+        BufferedImage Image = rbt.createScreenCapture(capture); 
+		
+		return Image;
+	}
+	
+
 
 	/**
 	 * @return the screenshot
