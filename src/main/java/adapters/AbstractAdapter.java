@@ -1,6 +1,7 @@
 package adapters;
 
-import app.SnippedImage;
+import java.awt.image.BufferedImage;
+
 import interfaces.Events;
 
 /**
@@ -11,8 +12,11 @@ import interfaces.Events;
  */
 public class AbstractAdapter implements Events {
 
-	public void onScreenshot(SnippedImage screenshot) {
+	public void onScreenshot(BufferedImage screenshot) {
+		System.out.print("Screenshot!");
 		
 	}
+
+
 
 }

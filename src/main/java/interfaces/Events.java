@@ -1,10 +1,12 @@
 package interfaces;
 
+import java.awt.image.BufferedImage;
+
 import app.SnippedImage;
 
 public interface Events {
 	
-	void onScreenshot(SnippedImage screenshot);
+	void onScreenshot(BufferedImage screenshot);
 	
 
 }
