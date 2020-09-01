@@ -7,6 +7,9 @@
  
 
 	<bean id="saveAdapter" class="adapters.SaveAdapter" />
+	
+	<bean id="clipboardAdapter" class="adapters.clipboard.ClipboardAdapter" />
+	
 	<bean id="completionAdapter" class="adapters.CompletionAdapter" />
 
 	<bean id="adapters" class="java.util.ArrayList">
@@ -14,6 +17,9 @@
 			<list>
 				<!-- To remove an Adapter comment it out -->
 				<ref bean="saveAdapter" />
+				<ref bean="clipboardAdapter" />
+				
+				<!-- Ensure that CompletionAdapter is always last, as it exits the application. -->
 				<ref bean="completionAdapter" />
 			</list>
 		</constructor-arg>
