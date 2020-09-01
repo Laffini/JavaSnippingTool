@@ -10,21 +10,23 @@ import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.image.BufferedImage;
 
-import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
+/**
+ * Image panel to select screenshot
+ * @author Laffini
+ *
+ */
 public class ImagePane extends JPanel {
-
-
 
 	private BufferedImage background;
 	private Rectangle selection;
-	private JFrame frame;
+
 
 	public ImagePane(final Window frame, BufferedImage img) {
 		background = img;
-		this.frame = frame;
+
 
 		MouseAdapter ma = new MouseAdapter() {
 
@@ -47,17 +49,14 @@ public class ImagePane extends JPanel {
 				selection = new Rectangle(x, y, width, height);
 				repaint();
 
-
 			}
 
 			@Override
 			public void mouseReleased(MouseEvent e) {
 				BufferedImage areaSelected = getSubImage();
 
-				// Notify listeners 
+				// Notify listeners
 				frame.getEventHandler().notifyOnScreenshot(areaSelected);
-
-
 
 			}
 
@@ -67,11 +66,12 @@ public class ImagePane extends JPanel {
 		addMouseMotionListener(ma);
 	}
 
-	public void clearSelection() {
-		selection = null;
-		repaint();
-	}
 
+
+	/**
+	 * Get the area selected
+	 * @return screenshot of selected area
+	 */
 	public BufferedImage getSubImage() {
 
 		BufferedImage img = null;
@@ -106,9 +106,5 @@ public class ImagePane extends JPanel {
 		}
 		g2d.dispose();
 	}
-
-
-
-
 
 }
