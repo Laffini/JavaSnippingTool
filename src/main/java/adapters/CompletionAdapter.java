@@ -11,7 +11,7 @@ public class CompletionAdapter extends AbstractAdapter {
 
 	@Override
 	public void onScreenshot(BufferedImage screenshot) {
-		// TODO: Check config file on what they would like to do, but by default exit
+
 		System.exit(0);
 	}
 

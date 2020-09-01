@@ -12,6 +12,7 @@
 	<bean id="adapters" class="java.util.ArrayList">
 		<constructor-arg>
 			<list>
+				<!-- To remove an Adapter comment it out -->
 				<ref bean="saveAdapter" />
 				<ref bean="completionAdapter" />
 			</list>

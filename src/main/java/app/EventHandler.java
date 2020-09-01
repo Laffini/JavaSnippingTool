@@ -9,6 +9,7 @@ import java.util.ArrayList;
 import interfaces.Events;
 
 /**
+ * EventHandler stores the event listeners as well as notifies them when a event occurs.
  * @author Laffini
  *
  */

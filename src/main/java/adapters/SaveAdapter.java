@@ -8,6 +8,11 @@ import java.util.Date;
 import javax.imageio.ImageIO;
 import javax.swing.JOptionPane;
 
+/**
+ * Adapter that saves the screenshot taken.
+ * @author Laffini
+ *
+ */
 public class SaveAdapter extends AbstractAdapter {
 
 	@Override
@@ -16,7 +21,7 @@ public class SaveAdapter extends AbstractAdapter {
 		Date date = new Date();  
 		String dateTime = formatter.format(date); 
 
-		// TODO: Have a config.properties file that sets save location
+
 		File outputfile = new File(dateTime+".jpg");
 
 		try {
