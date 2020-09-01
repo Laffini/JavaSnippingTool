@@ -60,7 +60,11 @@ public class Window extends JFrame {
 		this.setTitle("Java Snipping Tool");
 		setExtendedState(JFrame.MAXIMIZED_BOTH);
 		setUndecorated(true);
-		setLookAndFeel();
+
+
+		String systemLookAndFeel = UIManager.getSystemLookAndFeelClassName();
+		setLookAndFeel(systemLookAndFeel);
+
 
 		// Get and display screenshot of desktop
 		BufferedImage desktop = null;
@@ -98,9 +102,9 @@ public class Window extends JFrame {
 	/**
 	 * Set the look and feel of the window to the system's
 	 */
-	public void setLookAndFeel() {
+	public void setLookAndFeel(String lookAndFeel) {
 		try {
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
+			UIManager.setLookAndFeel(lookAndFeel);
 		} catch (ClassNotFoundException e) {
 
 			e.printStackTrace(); 
