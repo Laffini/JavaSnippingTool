@@ -17,18 +17,20 @@ public class SaveAdapter extends AbstractAdapter {
 
 	@Override
 	public void onScreenshot(BufferedImage screenshot){
+
+		// Get the current date and time to name the file.
 		SimpleDateFormat formatter = new SimpleDateFormat("dd-MM-yyyy HH-mm-ss");  
 		Date date = new Date();  
 		String dateTime = formatter.format(date); 
 
 
-		File outputfile = new File(dateTime+".jpg");
+		File outputfile = new File(dateTime + ".jpg");
 
 		try {
 			ImageIO.write(screenshot, "jpg", outputfile);
 		} catch (Exception e) {
 
-			JOptionPane.showMessageDialog(null, "Unable to save image.","Error",JOptionPane.ERROR_MESSAGE);
+			JOptionPane.showMessageDialog(null, "Unable to save image.", "Error", JOptionPane.ERROR_MESSAGE);
 
 		}
 	}

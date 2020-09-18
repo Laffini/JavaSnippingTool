@@ -12,9 +12,10 @@ import interfaces.Events;
  */
 public class AbstractAdapter implements Events {
 
+	/**
+	 * Default implementation of onScreenshot (do nothing).
+	 */
 	public void onScreenshot(BufferedImage screenshot) {
-
-
 	}
 
 

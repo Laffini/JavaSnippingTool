@@ -66,7 +66,7 @@ public class Window extends JFrame {
 		setLookAndFeel(systemLookAndFeel);
 
 
-		// Get and display screenshot of desktop
+		// Get screenshot of desktop
 		BufferedImage desktop = null;
 		try {
 			desktop = SnippedImage.createScreenshot();
@@ -78,7 +78,7 @@ public class Window extends JFrame {
 		}
 
 
-
+		// Display screenshot
 		ImageIcon imgDesktop = new ImageIcon(desktop);
 		JLabel label = new JLabel(imgDesktop);
 		this.add(label);
